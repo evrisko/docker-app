@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t euvrisko/docker-app .
+  - docker build -t euvrisko/docker-app -f Dockerfile.dev .
 
 script:
-  - docker run euvrisko/docker-app
+  - docker run euvrisko/docker-app npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
